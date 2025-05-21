@@ -432,7 +432,23 @@
         checkButton.classList.add("check");
         checkButton.id = "checkButton";
 
-        // Function to show popup with results
+        function popupMessage(title, message) {
+            let popup = document.createElement("div");
+            popup.id = "resultsPopup";
+            popup.innerHTML = `
+                    <div class="popup-content">
+                        <h2>${title}</h2>
+                        <p>${message}</p>
+                        <button id="closePopup">Close</button>
+                    </div>
+                `;
+            document.body.appendChild(popup);
+            document.getElementById("closePopup").addEventListener("click", function () {
+                popup.remove();
+            });
+        }
+
+        // Function to show a popup with results
         function showResultsPopup() {
             let popup = document.createElement("div");
             popup.id = "resultsPopup";
@@ -461,10 +477,11 @@
                     c.innerHTML = `<h2>Correct! ${chosen} is the answer.</h2>`;
                     document.body.appendChild(c);
                 } else {
-                    let c = document.createElement("div");
-                    c.id = "popup";
-                    c.innerText = `"Wrong! The correct answer is " + questions[questionCount].answer`;
-                    document.body.appendChild(c);
+                    popupMessage("Wrong!", "The correct answer is " + questions[questionCount].answer);
+                    // let c = document.createElement("div");
+                    // c.id = "popup";
+                    // c.innerText = `"Wrong! The correct answer is " + questions[questionCount].answer`;
+                    // document.body.appendChild(c);
                 }
                 questionCount++; // Increment questionCount after checking the answer
 
@@ -488,6 +505,11 @@
 
         // Display the first question
         questionDiv.innerHTML = `<h2>${questions[questionCount].question}</h2>`;
+    }
+
+    function getElementName(symbol) {
+        const element = elements.find(el => el.symbol === symbol);
+        return element ? element.name : symbol;
     }
 
     createPeriodicTable();
