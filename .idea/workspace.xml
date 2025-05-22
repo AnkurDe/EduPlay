@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36adf0cb-7f1f-4096-bdcf-c507e0eab506" name="Changes" comment="About us, Main, Red Light-Green Light, Memory Co">
-      <change afterPath="$PROJECT_DIR$/Main.css" afterDir="false" />
+    <list default="true" id="36adf0cb-7f1f-4096-bdcf-c507e0eab506" name="Changes" comment="Commiting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymbolUp/SymbolUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/SymbolUp/SymbolUp.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymbolUp/Symbolup.html" beforeDir="false" afterPath="$PROJECT_DIR$/SymbolUp/Symbolup.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +123,7 @@
       <workItem from="1747839062981" duration="8052000" />
       <workItem from="1747854929627" duration="242000" />
       <workItem from="1747855282851" duration="2287000" />
-      <workItem from="1747890850943" duration="16724000" />
+      <workItem from="1747890850943" duration="18700000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commits">
       <option name="closed" value="true" />
@@ -177,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747911997045</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Commiting">
+      <option name="closed" value="true" />
+      <created>1747918779001</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1747918779001</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +194,7 @@
     <MESSAGE value="Updated color" />
     <MESSAGE value="Better working of Symbol up game" />
     <MESSAGE value="About us, Main, Red Light-Green Light, Memory Co" />
-    <option name="LAST_COMMIT_MESSAGE" value="About us, Main, Red Light-Green Light, Memory Co" />
+    <MESSAGE value="Commiting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commiting" />
   </component>
 </project>
