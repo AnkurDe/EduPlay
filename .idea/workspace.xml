@@ -4,14 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36adf0cb-7f1f-4096-bdcf-c507e0eab506" name="Changes" comment="Initial commits">
+    <list default="true" id="36adf0cb-7f1f-4096-bdcf-c507e0eab506" name="Changes" comment="corrected and adjusted popups">
+      <change afterPath="$PROJECT_DIR$/Logo 2.0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SymbolUp/SymbolUp.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SymbolUp/SymbolUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Sem2-UID-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Sem2-UID-Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Symbolup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Symbolup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymbolUp/Symbolup.html" beforeDir="false" afterPath="$PROJECT_DIR$/SymbolUp/Symbolup.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -44,24 +59,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JavaScript Debug.Symbolup.html.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/My Github/Sem2-UID-Project&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.AIAssistantPromptsLibrary&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.Main.html.executor": "Run",
+    "JavaScript Debug.Symbolup.html.executor": "Run",
+    "JavaScript Debug.level1.html.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "E:/My Github/Sem2-UID-Project",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "ml.llm.AIAssistantPromptsLibrary",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\My Github\Sem2-UID-Project" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\My Github\Sem2-UID-Project" />
+      <recent name="E:\My Github\Sem2-UID-Project\.idea\SymbolUp" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.Symbolup.html">
+    <configuration name="Symbolup.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Sem2-UID-Project/SymbolUp/Symbolup.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="level1.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Sem2-UID-Project/Memory co/level1.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.Symbolup.html" />
+        <item itemvalue="JavaScript Debug.level1.html" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -82,7 +124,8 @@
       <workItem from="1747813349944" duration="1805000" />
       <workItem from="1747839062981" duration="8052000" />
       <workItem from="1747854929627" duration="242000" />
-      <workItem from="1747855282851" duration="2189000" />
+      <workItem from="1747855282851" duration="2287000" />
+      <workItem from="1747890850943" duration="13515000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commits">
       <option name="closed" value="true" />
@@ -100,7 +143,23 @@
       <option name="project" value="LOCAL" />
       <updated>1747857196470</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="corrected and adjusted popups">
+      <option name="closed" value="true" />
+      <created>1747858114908</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1747858114908</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Updated color">
+      <option name="closed" value="true" />
+      <created>1747911615294</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747911615294</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,6 +168,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commits" />
     <MESSAGE value="Questions changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Questions changed" />
+    <MESSAGE value="corrected and adjusted popups" />
+    <MESSAGE value="Updated color" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated color" />
   </component>
 </project>
