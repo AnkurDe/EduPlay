@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Light Green Light</title>
+    <link rel="icon" type="image/png" href="Taxi.png">
+    <link rel="stylesheet" href="Racer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="thumbnail-container">
+            <a href="../Main.html">
+                <img src="Logo 2.0.png" alt="Game Thumbnail" class="thumbnail">
+            </a>
+        </div>
+        <h1>RED LIGHT GREEN LIGHT</h1>
+    </header>
+
+    <main>
+        <div class="game-container">
+            <div class="road">
+                <div class="lane" id="lane1"></div>
+                <div class="lane" id="lane2"></div>
+                <div class="lane" id="lane3"></div>
+                <div id="player" class="taxi">
+                    <div class="taxi-top taxi-top-front"></div>
+                    <div class="taxi-top taxi-top-back"></div>
+                    <div class="taxi-body"></div>
+                    <div class="taxi-window"></div>
+                    <div class="taxi-wheel taxi-wheel-front"></div>
+                    <div class="taxi-wheel taxi-wheel-back"></div>
+                </div>
+                <!-- Vehicles will be dynamically created here -->
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <div class="traffic-light">
+                <div class="light red" id="red-light"></div>
+                <div class="light yellow" id="yellow-light"></div>
+                <div class="light green" id="green-light"></div>
+            </div>
+
+            <div class="timer-container">
+                <div class="timer" id="timer">2:00</div>
+            </div>
+
+            <div class="score-container">
+                <h2>SCORE: <span id="score">0</span></h2>
+            </div>
+
+            <div class="leaderboard-container">
+                <h2>LEADERBOARD</h2>
+                <div class="leaderboard" id="leaderboard">
+                    <!-- Leaderboard entries will be added here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="Racer.js"></script>
+</body>
+</html>

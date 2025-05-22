@@ -1,0 +1,383 @@
+/* Font and reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #ff4500, #ff7043);
+    padding: 15px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    font-size: 30px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.thumbnail-container {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+}
+
+.about-button-container {
+    margin-left: 15px;
+}
+
+.about-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #ff7043, #ff4500);
+    color: white;
+    font-family: 'Bungee', cursive;
+    text-decoration: none;
+    border-radius: 25px;
+    border: 2px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Main content styling */
+main {
+    display: flex;
+    height: calc(100vh - 110px);
+}
+
+.game-container {
+    flex: 3;
+    background-color: #333;
+    position: relative;
+    overflow: hidden;
+}
+
+.road {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #444;
+    display: flex;
+    flex-direction: column;
+}
+
+.lane {
+    flex: 1;
+    position: relative;
+    border-bottom: 5px dashed white;
+    display: flex;
+    align-items: center;
+}
+
+.lane:last-child {
+    border-bottom: none;
+}
+
+/* Taxi styling */
+.taxi {
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    left: 100px;
+    transition: top 0.3s ease;
+    z-index: 10;
+}
+
+.taxi-body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: yellow;
+    border-radius: 8px;
+}
+
+.taxi-top{
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    background-color: black;
+    top: -15%;
+    border-radius: 5px 5px 0 0;
+}
+.taxi-top-front {
+    left: 70%;
+}
+.taxi-top-back {
+    right: 70%;
+}
+
+.taxi-window {
+    position: absolute;
+    width: 20%;
+    height: 50%;
+    background-color: #a5d8ff;
+    top: 25%;
+    right: 60%;
+    border-radius: 2px;
+}
+
+.taxi-wheel {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    background-color: black;
+    bottom: -6px;
+    border-radius: 10px;
+}
+
+.taxi-wheel-front {
+    left: 5px;
+}
+
+.taxi-wheel-back {
+    right: 5px;
+}
+
+/* Vehicle styling */
+.vehicle {
+    position: absolute;
+    z-index: 5;
+}
+
+.bike {
+    width: 50px;
+    height: 35px;
+}
+.bike-light-green {
+    background-color: lightgreen;
+}
+.bike-wheel {
+    position: absolute;
+    width: 16px;
+    height: 8px;
+    background-color: black;
+    bottom: -4px;
+    border-radius: 8px;
+}
+.bike-wheel-front {
+    left: 2px;
+}
+.bike-wheel-back {
+    right: 2px;
+}
+
+.bike-red {
+    background-color: #ff4500;
+}
+
+.car {
+    width: 70px;
+    height: 45px;
+}
+
+.car-blue {
+    background-color: #4285f4;
+}
+
+.car-black {
+    background-color: #333;
+}
+
+.vehicle-body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.vehicle-wheel {
+    position: absolute;
+    width: 16px;
+    height: 8px;
+    background-color: black;
+    bottom: -4px;
+    border-radius: 8px;
+}
+
+.vehicle-wheel-front {
+    left: 8px;
+}
+
+.vehicle-wheel-back {
+    right: 8px;
+}
+
+.vehicle-window {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #a5d8ff;
+    top: 5px;
+    border-radius: 3px;
+}
+.vehicle-window-front{
+    left: 45px;
+}
+.vehicle-window-back{
+    right: 45px;
+}
+
+.blink {
+    animation: blink 0.5s linear infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Control panel styling */
+.control-panel {
+    flex: 1;
+    background-color: #ececec;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.traffic-light {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 180px;
+    height: 60px;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.light {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    opacity: 0.3;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.red {
+    background-color: #ff0000;
+}
+
+.yellow {
+    background-color: #ffcc00;
+}
+
+.green {
+    background-color: #00cc00;
+}
+
+.active {
+    opacity: 1;
+    box-shadow: 0 0 20px currentColor;
+}
+
+.timer-container {
+    margin-bottom: 30px;
+}
+
+.timer {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2rem;
+    color: #00cc00;
+    background-color: #222;
+    padding: 15px;
+    border-radius: 10px;
+    border: 3px solid #444;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.score-container {
+    margin-bottom: 30px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: center;
+}
+
+.score-container h2 {
+    font-family: 'Bungee', cursive;
+    color: #ff4500;
+}
+
+.leaderboard-container {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.leaderboard-container h2 {
+    font-family: 'Bungee', cursive;
+    color: #ff4500;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.leaderboard {
+    width: 100%;
+}
+
+.leaderboard-entry {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    margin-bottom: 5px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.leaderboard-entry:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
+.leaderboard-rank {
+    font-weight: bold;
+    color: #ff4500;
+}
+
+.leaderboard-score {
+    font-weight: bold;
+}

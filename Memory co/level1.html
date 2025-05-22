@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie Crossword</title>
+    <link rel="stylesheet" href="level1.css"> 
+</head>
+<body>
+    <h1>Foodie Crossword</h1>
+    <div class="rec"></div>
+    <div class="rec1"></div>
+    <div class="rec2"></div>
+    <div class="rec3"></div>
+
+    <div id = "game_container">
+        
+        <div id = "clues">
+        </div>
+        <div id="clue_container">
+            <div id="clue_grid"></div>
+          </div>
+        <div style="display: flex; align-items: flex-start;">
+            <div id="crossword_grid"></div>
+        
+            <div id="clue_section" style="margin-left: 30px;">
+                <br>
+                <h2>Across</h2>
+                <div id="across_clues" class="clue-grid"></div>
+        
+                <h2>Down</h2>
+                <div id="down_clues" class="clue-grid"></div>
+            </div>
+        </div>
+        
+        <!-- <div id = "crossword_grid"></div>
+        <div id = clues>
+            <h2>Clues</h2>
+            <div id = "img1">
+                <img src="https://png.pngtree.com/png-clipart/20241222/original/pngtree-dhokla-isolated-on-white-transparent-background-png-image_18128694.png" alt="Dhokla Clue" width="50" height="50">
+
+            </div>
+            <div id = "clue_list"></div>
+        </div>
+    </div> -->
+
+    <button onclick = "checkAnswers()" id = "button">
+        Check Answers
+    </button>
+    <script src = "level1.js"></script>
+
+    </div>
+    
+</body>
+</html>
