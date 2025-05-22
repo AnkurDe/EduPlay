@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36adf0cb-7f1f-4096-bdcf-c507e0eab506" name="Changes" comment="corrected and adjusted popups">
-      <change afterPath="$PROJECT_DIR$/Logo 2.0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SymbolUp/SymbolUp.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SymbolUp/SymbolUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Sem2-UID-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Sem2-UID-Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
+    <list default="true" id="36adf0cb-7f1f-4096-bdcf-c507e0eab506" name="Changes" comment="About us, Main, Red Light-Green Light, Memory Co">
+      <change afterPath="$PROJECT_DIR$/Main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/Main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymbolUp/SymbolUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/SymbolUp/SymbolUp.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SymbolUp/Symbolup.html" beforeDir="false" afterPath="$PROJECT_DIR$/SymbolUp/Symbolup.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -63,6 +60,7 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "JavaScript Debug.Main.html.executor": "Run",
+    "JavaScript Debug.Racer.html.executor": "Run",
     "JavaScript Debug.Symbolup.html.executor": "Run",
     "JavaScript Debug.level1.html.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
@@ -91,6 +89,9 @@
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.Symbolup.html">
+    <configuration name="Racer.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Sem2-UID-Project/Racer/Racer.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="Symbolup.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Sem2-UID-Project/SymbolUp/Symbolup.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -100,6 +101,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="JavaScript Debug.Symbolup.html" />
+        <item itemvalue="JavaScript Debug.Racer.html" />
         <item itemvalue="JavaScript Debug.level1.html" />
       </list>
     </recent_temporary>
@@ -125,7 +127,7 @@
       <workItem from="1747839062981" duration="8052000" />
       <workItem from="1747854929627" duration="242000" />
       <workItem from="1747855282851" duration="2287000" />
-      <workItem from="1747890850943" duration="13515000" />
+      <workItem from="1747890850943" duration="16724000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commits">
       <option name="closed" value="true" />
@@ -159,7 +161,23 @@
       <option name="project" value="LOCAL" />
       <updated>1747911615294</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Better working of Symbol up game">
+      <option name="closed" value="true" />
+      <created>1747911914220</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1747911914220</updated>
+    </task>
+    <task id="LOCAL-00006" summary="About us, Main, Red Light-Green Light, Memory Co">
+      <option name="closed" value="true" />
+      <created>1747911997045</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1747911997045</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +188,8 @@
     <MESSAGE value="Questions changed" />
     <MESSAGE value="corrected and adjusted popups" />
     <MESSAGE value="Updated color" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated color" />
+    <MESSAGE value="Better working of Symbol up game" />
+    <MESSAGE value="About us, Main, Red Light-Green Light, Memory Co" />
+    <option name="LAST_COMMIT_MESSAGE" value="About us, Main, Red Light-Green Light, Memory Co" />
   </component>
 </project>
