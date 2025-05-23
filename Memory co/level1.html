@@ -3,25 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="Food.jpg" type="image/jpg">
-    <title>Foodie Crossword</title>
+    <title>Indian Food </title>
+    <!-- for tab icon -->
+    <link rel="icon" type="image/jpg" href="images/indian.jpg">
     <link rel="stylesheet" href="level1.css"> 
+
 </head>
 <body>
-    <h1>Foodie Crossword</h1>
-    <div class="rec"></div>
-    <div class="rec1"></div>
-    <div class="rec2"></div>
-    <div class="rec3"></div>
-
-    <div id = "game_container">
-        
-        <div id = "clues">
+    <!-- creating header for the thumbnail and connecting it to the main game page -->
+    <header>
+    <div class="header-container">
+        <div class="thumbnail-container">
+            <a href="MainCross.html">
+                <!-- <a href="../anotherfolder/otherfile.html">Go to Other File</a> -->
+                <!-- to connect to a file in a different folder  -->
+                <img src="images/Memory_co.jpg" alt="Game Thumbnail" class="thumbnail">
+            </a>
         </div>
-        <div id="clue_container">
-            <div id="clue_grid"></div>
-          </div>
+    </div>
+</header>
+    <div class="rec"></div>
+   <div id = "game_container">
+        
         <div style="display: flex; align-items: flex-start;">
+            <!-- here both the grid and the clues are aligned side by side due to display and they are at the top edge due to flex start properties respectively -->
             <div id="crossword_grid"></div>
         
             <div id="clue_section" style="margin-left: 30px;">
@@ -34,23 +39,10 @@
             </div>
         </div>
         
-        <!-- <div id = "crossword_grid"></div>
-        <div id = clues>
-            <h2>Clues</h2>
-            <div id = "img1">
-                <img src="https://png.pngtree.com/png-clipart/20241222/original/pngtree-dhokla-isolated-on-white-transparent-background-png-image_18128694.png" alt="Dhokla Clue" width="50" height="50">
-
-            </div>
-            <div id = "clue_list"></div>
-        </div>
-    </div> -->
-
     <button onclick = "checkAnswers()" id = "button">
         Check Answers
     </button>
     <script src = "level1.js"></script>
-
-    </div>
     
 </body>
 </html>

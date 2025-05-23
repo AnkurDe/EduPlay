@@ -1,6 +1,6 @@
-
 let chosen = null;
 
+//118 elements in the periodic table but 120 elements because of Lanthanum and Actinium repeating two times
 const elements = [
     {number: 1, symbol: "H", name: "Hydrogen", group: "nonmetal", position: [1, 1]},
     {number: 2, symbol: "He", name: "Helium", group: "noble-gas", position: [18, 1]},
@@ -124,7 +124,7 @@ const elements = [
     {number: 103, symbol: "Lr", name: "Lawrencium", group: "actinide", position: [17, 10]}
 ];
 
-
+// There are 13 questions in total
 const questions = [
     // Hard
     {question: "Which element has the atomic number 8?", answer: "O"},
@@ -145,28 +145,41 @@ const questions = [
 
 function createPeriodicTable() {
     // Get the predefined elements and their positions
+
+    //To get the periodic table div with id periodic-table
     const table = document.getElementById("periodic-table");
+
+    // Creating a new table array in memory
+    // new Array(10) creates an array with 10 rows
+    // fill() fills the array with undefined values
+    // map() creates a new array with 18 columns in each row] it does by iterating through the array
+    // new Array(18).fill(null) -- fills the array with null values with 18 elements i.e. 18 columns
     const grid = new Array(10).fill().map(() => new Array(18).fill(null));
 
     // Fill the grid with elements
+    // elements.forEach() iterates through each element in the elements array
+    // el.position gives the x,y position of the element in the grid
     elements.forEach(el => {
+        // retrieving the x and y position of the element
         const [x, y] = el.position;
+        // Fill the grid with the element at the specified position
         grid[y - 1][x - 1] = el;
     });
 
-    // Create rows
+    // Create rows in the table dynamically
     for (const row of grid) {
         const periodDiv = document.createElement("div");
+        // Set the class for the row to be "period"
         periodDiv.classList.add("period");
 
         // Create elements in each row
         for (const element of row) {
             const div = document.createElement("div");
 
+            // Check if the element is not null
             if (element) {
                 div.classList.add("element", element.group);
                 div.innerHTML = `<div style="font-size: 14px;">${element.number}</div><div style="font-size: 26px;">${element.symbol}</div>`;
-                // div.innerHTML = `<small>${element.number}</small><br><strong>${element.symbol}</strong>`;
                 div.title = element.name;
                 div.id = element.symbol; // Set the element's ID to its symbol
 
@@ -175,10 +188,12 @@ function createPeriodicTable() {
                     console.log("Chosen element: " + chosen); // Optional: Log the chosen element
                     document.getElementById("chosenValue").textContent = chosen;
                 });
-            } else {
+            }
+            // If an element is null
+            else {
                 div.classList.add("spacer");
             }
-
+            // Append the element div to the periodDiv
             periodDiv.appendChild(div);
         }
 
@@ -187,8 +202,11 @@ function createPeriodicTable() {
 }
 
 function startQuestionnare() {
+    // No. of questions tried
     let questionCount = 0;
+    // No. of correct answers
     let correctAnswers = 0;
+    //
     document.querySelector(".questionSlide button").remove();
     let questionDiv = document.createElement("div");
     questionDiv.id = "questionDiv";
@@ -245,10 +263,6 @@ function startQuestionnare() {
                 document.body.appendChild(c);
             } else {
                 popupMessage("Wrong!", "The correct answer is " + questions[questionCount].answer);
-                // let c = document.createElement("div");
-                // c.id = "popup";
-                // c.innerText = `"Wrong! The correct answer is " + questions[questionCount].answer`;
-                // document.body.appendChild(c);
             }
             questionCount++; // Increment questionCount after checking the answer
 
@@ -273,10 +287,4 @@ function startQuestionnare() {
     // Display the first question
     questionDiv.innerHTML = `<h2>${questions[questionCount].question}</h2>`;
 }
-
-function getElementName(symbol) {
-    const element = elements.find(el => el.symbol === symbol);
-    return element ? element.name : symbol;
-}
-
 createPeriodicTable();

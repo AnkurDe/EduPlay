@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Crossword</title>
+    <link rel="icon" type="image/jpg" href="images/animalss.jpg">
+    <link rel="stylesheet" href="level2.css">
+     
+</head>
+<body>
+    <header>
+    <div class="header-container">
+        <div class="thumbnail-container">
+            <a href="MainCross.html">
+                <img src="images/Memory_co.jpg" alt="Game Thumbnail" class="thumbnail">
+            </a>
+        </div>
+    </div>
+</header>
+
+    <div class="rec"></div>
+    <div id = "game_container">
+        
+        <div id = "clues">
+        </div>
+        <div id="clue_container">
+            <div id="clue_grid"></div>
+          </div>
+        <div style="display: flex; align-items: flex-start;">
+            <div id="crossword_grid"></div>
+        
+            <div id="clue_section" style="margin-left: 30px;">
+                <br>
+                <h2>Across</h2>
+                <div id="across_clues" class="clue-grid"></div>
+        
+                <h2>Down</h2>
+                <div id="down_clues" class="clue-grid"></div>
+            </div>
+        </div>
+    <button onclick = "checkAnswers()" id = "button">
+        Check Answers
+    </button>
+    <script src = "level2.js"></script>
+    
+</body>
+</html>

@@ -1,79 +1,21 @@
-
-
-/* }
-#game_container{
-display: flex;
-justify-content: center;
-gap: 2rem;
-margin: 30px;
-flex-wrap: wrap;
-}*/
-
-/* #crossword_grid{
-    display: grid;
-    grid-template-columns: repeat(6,50px); 
-    /* 6 columns and 6 rows of 50px each 
-    grid-template-rows: repeat(6, 50px);
-    gap: 5px;
-
-}
-
-#crossword_grid input {
-width : 50px;
-height : 50px;
-text-transform: uppercase;
-text-align: center;
-font-size: 1.5rem;
-border: 2px solid #ccc;
-border-radius: 10px;
-background-color: #fff;
-
-}
-
-#clues img {
-    width: 60px;
-    margin: 10px;
-    border-radius: 10px;
-    border: 2px solid #eee;
-}  */
- 
-body {
-    /* font-family: 'Bernard MT','Segoe UI', sans-serif; */
+ body {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     padding: 20px;
     background-color:black;
-     /* #ffe1b3; */
     text-align: center;
     color: #41e8a8;
-  }
-
-  h1 {
-    text-align: center;
-    /* color: #f31e1e; */
-    /* font-family: 'Press Start 2P', cursive; */
-    color: #41e8a8;
-    font-size:300%;
-
+    
   }
 
   #game_container {
-    display: flex;
-    /* justify-content: flex-end; pushes grid to the right */
-
-    flex-direction: column;
-    gap: 5px;
+    /* contains grid and clues section */
+    gap: 5px; 
+    /* space between the grid rows and columns  */
     margin-top: 10px;
-    /* margin: 10px; */
   }
 
-
-  .grid-row {
-    display: flex;
-    gap : 7px;
-    padding-bottom: 7px;
-  }
-
-  .grid-cell {
+  .grid-cell { 
+    /* for each cell of the grid */
     width: 60px;
     height: 60px;
     text-align: center;
@@ -84,131 +26,133 @@ body {
   }
 
   .grid-cell:focus {
-    border-color: #df2180;
-    outline: none;
+    /* for the outline of the cell when it is clicked on  */
+    border-color: #f56969;
+    outline: none; 
+    /* removes default outline */
   }
 
-  .rec{
+  .rec{ 
+    /* for the line that divides the crossword and clues */
     position: relative;
-    /* z-index: -1; */
-    height: 880px;
-    width: 5px;
+    height: 107%;
+    width: 3px;
     background-color: #f56969;
     position: absolute;
     margin-top: 30px;
     left: 810px;
 }
-/* 
-.rec1{ 
-  /* across 
-    position: relative;
-     z-index: -1; 
-    height: 50px;
-    width: 870px;
-    /* background-color: #ffffff; 
-      border: 4px solid #f56969; Add this line for a bold red border 
-
-    position: absolute;
-    margin-top: 40px;
-    left: 810px;
-}
-
-.rec2{
-  /* down 
-  position: relative;
-   z-index: -1; 
-  height: 50px;
-  width: 870px;
-  /* background-color: #ffffff; 
-    border: 4px solid #f56969;  <-- Add this line for a bold red border 
-
-  position: absolute;
-  margin-top: 605px;
-  left: 810px;
-} */
-
-.rec3{
-  z-index: -1; 
-  height: 150px;
-  width: 1652px;
-  /* border-color: #ffffff; */
-    border: 4px solid #f56969; /* <-- Add this line for a bold red border */
-
-  position: absolute;
-  bottom: 630px;
-  /* margin-top: px; */
-}
-
-.blocked {
-    background-color: #ccc;      /* light gray */
-    pointer-events: none;        /* make it unclickable */
-    border: 2px solid #888;
-    color: transparent;          /* hide any typed text */
-  }
-
-  /* #clue_container {
-    /* margin: 20px; */
-    /* display: absolute; */
-    /* nav-right: 800px; */
-    /* flex-direction: column;} */
-
-
-/* #clue_grid {
-    /* display: grid;
-    grid-template-columns: repeat(2, 200px); /* change to 1 column if you want bigger */
-    /* gap: 20px;
-    justify-content: center;
-    margin-top: 5px; */ 
-    /* width: 100%;
-    height: 100%;
-    text-align: center;
-    font-size: 20px;
-    text-transform: uppercase;
-    padding: 0;
-    border: 1px solid #ccc;
-    box-sizing: border-box; }*/
-
 
 #across_clues, #down_clues {
-      display: grid;
+      display: grid; 
+      /* creating separate grids for both across and down clues */
       grid-template-columns: repeat(4,1fr);
+      /* creates 4 columns and 1 fraction of space is taken by each column to keep it even spaced */
       gap: 10px;
-      margin: 10px 0;
+      margin: 10px;
 }
+
+#across_clues:has(.clue-box:hover) .clue-box:not(:hover),
+#down_clues:has(.clue-box:hover) .clue-box:not(:hover) {
+  /* here the clue box from across clues and down clues is being selected
+  the clue box that is being hovered on is selected from either of the grids 
+  then the target that the css property works on are the clue boxes that are not being hovered on */
+    filter: blur(4px) brightness(0.8);
+    /* here gaussian blur effect is used with radius 4px (more the radius more the pixels smooth out), the radius is the standard deviation value */
+    /* blurring the rest of the clues and dimming them by reducing brightness by 80 percent */
+    transition: filter 0.2s;
+    /* for smooth animation from the blur to normal */
+}
+
+
 .clue-box {
+  /* for the clue box */
     border: 2px solid #333;
     padding: 10px;
-    /* background: #fff; */ 
-        border: 2px solid #f56969; /* <-- Add this line for a bold red border */
-
+    border: 2px solid #f56969; 
     text-align: center;
     border-radius: 10px;
 }
 
+.clue-box:hover {
+  z-index: 10;
+  /* to remove overlapping while scaling the clues */
+  transform: scale(1.3);
+  /* image becomes 130% larger when hoered on */
+  transition: transform 0.2s;
+}
+  /* takes 0.2s to do the transform */
+
+
 .clue-number {
+  /* for the numbering of clues */
     font-weight: bold;
     margin-bottom: 10px;
     font-size: 22px;
 }
 
 .clue-image {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     object-fit: cover;
+    /* to cut off excess clue image */
     border-radius: 8px;
 }
 
 #button{
+  /* for the check answer button */
   height: 100px;
   width: 740px;
-  /*background-color: #ffffff;*/
+  background-color: #ffffff;
   position: absolute;
-  top:950px;
+  top:107%;
   left: 50px;
   font-size: 30px;
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   background-color: #f56969;
-    color: white;
-  box-shadow: 0 2px #b2b2b2 inset;
-  transform: scale(0.98);
+  color: white;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid white;
+    transition: transform 0.3s;
+    /* for the transform property the transition takees 0.3s */
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+}
+
+.thumbnail-container {
+    width: 40px;
+    height: 40px;
+}
+
+#congrats-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+     /* stretch the overlay to all four edges of the screen */
+    width: 100vw; height: 100vh;
+    /* sets the width of the overlay to 100% of the viewport width and height(vw= viewport width) */
+    background: rgba(0, 0, 0, 0.5);
+    /* 0.5 means 50% transparent */
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    /* bluring the screen behind the congratulations message */
+}
+
+.congrats-message {
+    background: white;
+    padding: 40px 60px;
+    border-radius: 20px;
+    font-size: 2.5rem;
+    color: #4caf50;
+    text-align: center;
 }

@@ -1,11 +1,14 @@
+// set the size of the crossword grid
 const gridSize = 12;
-const crosswordData = [
-    { row: 0, col: 0, answer: 'G', clue: '1'},
-    { row: 0, col: 1, answer: 'U' },
+
+// array containing all crossword answers and clues
+const crosswordData = [ //cuntom set of array values for the crossword
+    { row: 0, col: 0, answer: 'G', clue: '1'}, // first cell with clue number 1
+    { row: 0, col: 1, answer: 'U' }, // next cell in the first row
     { row: 0, col: 2, answer: 'L' },
     { row: 0, col: 3, answer: 'A' },
     { row: 0, col: 4, answer: 'B' },
-    { row: 0, col: 5, answer: 'J', clue: '2' },
+    { row: 0, col: 5, answer: 'J', clue: '2' }, // start of another word clue 2
     { row: 0, col: 6, answer: 'A' },
     { row: 0, col: 7, answer: 'M' },
     { row: 0, col: 8, answer: 'U' },
@@ -68,85 +71,90 @@ const crosswordData = [
     
 ];
 
-function checkAnswers() {
-    const inputs = document.querySelectorAll('#crossword_grid input');
-    inputs.forEach(input => {
-        if (!input.disabled) {
-            const userAns = input.value.toUpperCase();
-            const corrAns = input.dataset.answer;
-            if (userAns === corrAns) {
-                input.style.backgroundColor = '#b2f2bb'; // green for correct
-            } else if (userAns !== '') {
-                input.style.backgroundColor = '#ffa8a8'; // red for incorrect
-            } else {
-                input.style.backgroundColor = ''; // reset if empty
-            }
-        }
-    });
+
+ //displays a congratulations overlay when the crossword is solved
+ 
+function showCongratulations() {
+    // creating overlay object and making a div element then assigning an id to it and creating html div for it to add text in the msg
+    const overlay = document.createElement('div');
+    overlay.id = 'congrats-overlay';
+    overlay.innerHTML = 
+    `<div class="congrats-message">
+            🎉Congratulations!🎉<br>
+            You solved the crossword!
+        </div>`;
+    // Add overlay to the document
+    //when crossword is solved completely it assigns the id and appends the msg to the page
+    document.body.appendChild(overlay);
 }
 
-// function checkAnswers() {
-//     // Group crosswordData by clue number
-//     const clues = crosswordData.filter(item => item.clue).map(item => item.clue);
 
-//     // Use a Set to avoid duplicate clues
-//     const uniqueClues = [...new Set(clues)];
+//   checks the users answers in the crossword grid
+//  highlights correct and incorrect answers
+//  Shows congratulations if all answers are correct
+ 
+function checkAnswers() {
+    //select all input elements in the crossword grid
+    const inputs = document.querySelectorAll('#crossword_grid input');
+    let allCorrect = true; // assume all are correct until proven otherwise
+    inputs.forEach(input => {
+        // iterates over each input element using an arrow function
+        if (!input.disabled) { // only check enabled cells
+            const userAns = input.value.toUpperCase(); // users answer(uppercase)
+            const corrAns = input.dataset.answer; // correct answer
+            if (userAns === corrAns) {
+                input.style.backgroundColor = '#b2f2bb'; // Green for correct
+            } else if (userAns !== '') {
+                input.style.backgroundColor = '#ffa8a8'; // Red for incorrect
+                allCorrect = false; // Mark as not all correct
+            } else {
+                input.style.backgroundColor = ''; // Reset if empty
+                allCorrect = false;
+            }
+        }
+        //input is taken and selected, iteration through each element is done and each letter is checked with user input with  the condition that the input is disables and user input value is converted to uppercase
+        //is userinput ans correct answer are same then background of cell will change to green
+        //if call is not empty and user input is wrong it will be changed to red and if its empty it will be reset
+    });
+    // if all answers are correct show congratulations
+    if (allCorrect) {
+        showCongratulations();
+    }
+}
 
-//     uniqueClues.forEach(clueNum => {
-//         // Get all cells for this word
-//         const wordCells = crosswordData.filter(item => item.clue == clueNum)
-//             .map(item => {
-//                 // Find the corresponding input element
-//                 return document.querySelector(
-//                     `#crossword_grid input[data-clue='${clueNum}'][data-answer='${item.answer}'][style='']`
-//                 ) ||
-//                 document.querySelector(
-//                     `#crossword_grid input[data-clue='${clueNum}'][data-answer='${item.answer}']`
-//                 );
-//             })
-//             .filter(Boolean);
-
-//         // If no cells found, skip
-//         if (wordCells.length === 0) return;
-
-//         // Check if all letters are correct
-//         const allCorrect = wordCells.every(input => input.value.toUpperCase() === input.dataset.answer);
-
-//         // Set color for all cells in the word
-//         wordCells.forEach(input => {
-//             if (input.value === '') {
-//                 input.style.backgroundColor = '';
-//             } else if (allCorrect) {
-//                 input.style.backgroundColor = '#b2f2bb'; // green
-//             } else {
-//                 input.style.backgroundColor = '#ffa8a8'; // red
-//             }
-//         });
-//     });
-// }
-
+ //creates the crossword grid dynamically in the DOM
+ 
 function createCrossGrid() {
+    // get the grid container
     const grid = document.getElementById('crossword_grid');
     grid.innerHTML = '';
 
+    // loop through each row and column
     for (let row = 0; row < gridSize; row++) {
         for (let col = 0; col < gridSize; col++) {
+            // Create a container for each cell
             const cellContainer = document.createElement('div');
             cellContainer.className = 'cell-container';
 
+            // Create the input for the cell
             const input = document.createElement('input');
             input.className = 'grid-cell';
             input.maxLength = 1;
-            input.dataset.row = row;
+            input.dataset.row = row; // defining index value for each input element
             input.dataset.col = col;
 
+            // Find if this cell should have an answer
             const cellData = crosswordData.find(item => item.row === row && item.col === col);
-
+            // checking if there is any answer value defined for the cell
+            // .find searches for the first element matching the condition
             if (!cellData) {
+                // If no answer disable the cell
                 input.disabled = true;
             } else {
+                // Set the correct answer as a data attribute
                 input.dataset.answer = cellData.answer;
 
+                // If this cell has a clue add the clue number
                 if (cellData.clue) {
                     const clue = document.createElement('span');
                     clue.className = 'clue';
@@ -154,7 +162,9 @@ function createCrossGrid() {
                     cellContainer.appendChild(clue);
                 }
 
+                // Add keyboard navigation for arrow keys
                 input.addEventListener('keydown', (e) => {
+                    //e is the event
                     let nextRow = row;
                     let nextCol = col;
 
@@ -165,100 +175,42 @@ function createCrossGrid() {
                     else return;
 
                     e.preventDefault();
-
-                    const nextInput = document.querySelector(
-                        `input[data-row='${nextRow}'][data-col='${nextCol}']`
+                    // predefined fnc to prevent scrolling while pressing arrow key
+                    // Focus the next input if it exists and is not disabled
+                    const nextInput = document.querySelector( // to find one hlp element on the page
+                        `input[data-row='${nextRow}'][data-col='${nextCol}']` //css selector for the element we want
+                    // `` is for template literals
+                    //${nextRow} is a placeholder that gets replaced by the value of nextRow its replaced by current value of nextRow
+                    // used to move hte cursor to the next cell
                     );
 
-                    if (nextInput && !nextInput.disabled) nextInput.focus();
+                    if (nextInput && !nextInput.disabled) nextInput.focus(); // to focus on the next cell
+                    // if that input box exists and is not disabled it puts the cursor there
+
                 });
             }
 
+            // Add the input to the cell container
             cellContainer.appendChild(input);
+            // Add the cell container to the grid
             grid.appendChild(cellContainer);
         }
     }
 }
 
+// When the window loads create the crossword grid
 window.onload = () => {
     createCrossGrid();
 };
-
-// function createCrossGrid() {
-    
-//     const grid = document.getElementById('crossword_grid');
-//     grid.innerHTML = '';
-
-//     for (let row = 0; row < gridSize; row++) {
-//         for (let col = 0; col < gridSize; col++) {
-//             // Create a cell container div
-//             const cellContainer = document.createElement('div');
-//             cellContainer.className = 'cell-container';
-            
-//             const input = document.createElement('input');
-//             input.setAttribute('maxlength', 1);
-//             input.className = 'grid-cell';
-            
-//             // Find if there's an answer for this cell
-//             const cellData = crosswordData.find(item => item.row === row && item.col === col);
-            
-//             if (!cellData) {
-//                 input.disabled = true;
-//                 input.style.backgroundColor = '#ddd';
-//             } else {
-//                 input.dataset.answer = cellData.answer;
-//                 if (cellData.clue) {
-//                     input.dataset.clue = cellData.clue;
-//                     const clueSpan = document.createElement('span');
-//                     clueSpan.className = 'clue';
-//                     clueSpan.textContent = cellData.clue;
-//                     cellContainer.appendChild(clueSpan);
-//                 }
-//             }
-            
-//             cellContainer.appendChild(input);
-//             grid.appendChild(cellContainer);
-//         }
-//     }
-// }
-
-// function loadClues() {
-//     const clueList = document.getElementById('clue_list');
-//     clueList.innerHTML = '';
-
-//     // Get only the items with clues
-//     const clues = crosswordData.filter(item => item.clue);
-    
-//     clues.forEach(clueData => {
-//         const clueItem = document.createElement('div');
-//         clueItem.className = 'clue-item';
-//         clueItem.innerHTML = `${clueData.clue} - ${clueData.row + 1},${clueData.col + 1}`;
-//         clueList.appendChild(clueItem);
-//     });
-// }
-
-// function checkAnswers() {
-//     const inputs = document.querySelectorAll('#crossword_grid input');
-//     inputs.forEach(input => {
-//         if (!input.disabled) {
-//             const userAns = input.value.toUpperCase();
-//             const corrAns = input.dataset.answer;
-            
-//             if (userAns === corrAns) {
-//                 input.style.backgroundColor = '#b2f2bb';
-//             } else if (userAns !== '') {
-//                 input.style.backgroundColor = '#ffa8a8';
-//             }
-//         }
-//     });
-// }
-
+// ${gridSize} is for embedding the string value
 // Update the styling to accommodate the new structure
+// box-sizing: border-box; includes padding and border inside the width
+
 const style = document.createElement('style');
 style.textContent = `
     #crossword_grid {
         display: grid;
-        grid-template-columns: repeat(${gridSize}, 60px);
+        grid-template-columns: repeat(${gridSize}, 60px); 
         gap: 2px;
         margin: 20px;
     }
@@ -295,13 +247,14 @@ style.textContent = `
     }
     
     .grid-cell:disabled {
-        background-color: #ddd;
-        border: 1px solid #999;
+        background-color:rgb(170, 165, 165);
+        border: 10px solid #999;
     }
 `;
 document.head.appendChild(style);
 
-const clueImages = {
+// Object mapping clue numbers to image paths
+const clueImages = {  // storing key value pairs like dictionary
     1: 'images/GulabJamuns.png',
     2: 'images/Jalebi.png',
     3: 'images/idli1.jpg',
@@ -314,6 +267,7 @@ const clueImages = {
     10: 'images/vada.jpeg',
 };
 
+// Object mapping clue numbers to their direction (across/down)
 const clueTypes = {
     1: 'across',
     2: 'across',
@@ -327,68 +281,43 @@ const clueTypes = {
     10: 'down',
 };
 
-// function loadClues() {
-//     const acrossGrid = document.getElementById('across_clues');
-//     const downGrid = document.getElementById('down_clues');
-//     acrossGrid.innerHTML = '';
-//     downGrid.innerHTML = '';
 
-//     const clues = crosswordData.filter(item => item.clue);
-
-//     clues.forEach(item => {
-//         const clueNumber = item.clue;
-//         const clueType = clueTypes[clueNumber]; // 'across' or 'down'
-//         const container = document.createElement('div');
-//         container.className = 'clue-box';
-
-//         const number = document.createElement('div');
-//         number.className = 'clue-number';
-//         number.textContent = clueNumber;
-
-//         const img = document.createElement('img');
-//         img.className = 'clue-image';
-//         img.src = clueImages[clueNumber] || '';
-//         img.alt = `Clue ${clueNumber}`;
-
-//         container.appendChild(number);
-//         container.appendChild(img);
-
-//         if (clueType === 'across') {
-//             acrossGrid.appendChild(container);
-//         } else if (clueType === 'down') {
-//             downGrid.appendChild(container);
-//         }
-//     });
-// }
-
+ //Loads and displays the clues (with images) in the across and down sections
 function loadClues() {
+    // Get the containers for across and down clues
     const acrossGrid = document.getElementById('across_clues');
     const downGrid = document.getElementById('down_clues');
 
+    // makes sure container is empty before adding clues
     acrossGrid.innerHTML = '';
     downGrid.innerHTML = '';
 
+    // Filter crosswordData for items with clues
     const clues = crosswordData.filter(item => item.clue);
 
     clues.forEach(item => {
-        const clueNumber = item.clue;
-        const clueType = clueTypes[clueNumber]; // 'across' or 'down'
+        const clueNumber = item.clue; //going through each item to see which item has a clue
+        const clueType = clueTypes[clueNumber]; // 'across' or 'down' by checking the clue number
 
+        // Create a container for the clue
         const container = document.createElement('div');
         container.className = 'clue-box';
 
+        // Add the clue number
         const number = document.createElement('div');
         number.className = 'clue-number';
         number.textContent = clueNumber;
 
+        // Add the clue image
         const img = document.createElement('img');
         img.className = 'clue-image';
-        img.src = clueImages[clueNumber] || '';
-        img.alt = `Clue ${clueNumber}`;
+        img.src = clueImages[clueNumber] || ''; //empty string if no img found
+        img.alt = `Clue ${clueNumber}`; // to add alternative text if clue img doesnt load
 
         container.appendChild(number);
         container.appendChild(img);
 
+        // Add the clue to the correct section
         if (clueType === 'across') {
             acrossGrid.appendChild(container);
         } else if (clueType === 'down') {
@@ -397,8 +326,7 @@ function loadClues() {
     });
 }
 
-
-// Initialize the crossword
+// Initialize the crossword and clues
 createCrossGrid();
 loadClues();
 
