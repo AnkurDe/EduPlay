@@ -222,7 +222,7 @@ function startQuestionnare() {
         popup.innerHTML = `
                     <div class="popup-content">
                         <h2>Quiz Complete!</h2>
-                        <p>Out of the questions you did, you answered ${correctAnswers} questions correctly.</p>
+                        <p>Out of the 13 questions, you answered ${correctAnswers} questions correctly.</p>
                         <button id="closePopup">Close</button>
                     </div>
                 `;
