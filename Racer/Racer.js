@@ -150,7 +150,7 @@ function spawnVehicle() {
         element: vehicle,
         lane: lane,
         position: window.innerWidth,
-        speed: Math.random() * 2 + 2, // Random speed between 2 and 4
+        speed: Math.random() * 8 + 8, // Random speed between 2 and 4
         type: vehicleType.type,
         width: vehicleType.width
     });

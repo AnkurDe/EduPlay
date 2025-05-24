@@ -34,7 +34,6 @@
 
   .rec{ 
     /* for the line that divides the crossword and clues */
-    position: relative;
     height: 107%;
     width: 3px;
     background-color: #f56969;
@@ -67,7 +66,6 @@
 
 .clue-box {
   /* for the clue box */
-    border: 2px solid #333;
     padding: 10px;
     border: 2px solid #f56969; 
     text-align: center;
@@ -103,7 +101,6 @@
   /* for the check answer button */
   height: 100px;
   width: 740px;
-  background-color: #ffffff;
   position: absolute;
   top:107%;
   left: 50px;
